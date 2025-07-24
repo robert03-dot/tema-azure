@@ -9,11 +9,11 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     env:
-      client_id: ${{ secrets.ARM_CLIENT_ID }}
-      client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
-      tenant_id: ${{ secrets.ARM_TENANT_ID }}
-      subscription_id: ${{ vars.ARM_SUBSCRIPTION_ID }}
-      vms_password: ${{ secrets.VM_PASSWORD }}
+      TF_VAR_client_id: ${{ secrets.ARM_CLIENT_ID }}
+      TF_VAR_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
+      TF_VAR_tenant_id: ${{ secrets.ARM_TENANT_ID }}
+      TF_VAR_subscription_id: ${{ vars.ARM_SUBSCRIPTION_ID }}
+      TF_VAR_vms_password: ${{ secrets.VM_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4

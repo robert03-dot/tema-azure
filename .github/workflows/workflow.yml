@@ -3,7 +3,6 @@ name: terraform workflow
 on:
   push:
     branches: [ "master" ]
-
   workflow_dispatch:
 
 jobs:
@@ -22,14 +21,14 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         name: setup terraform
 
-      - name: change dir
-        run: cd tf
-
-      - name: init
+      - name: terraform init
         run: terraform init
+        working-directory: tf
 
-      - name: plan
+      - name: terraform plan
         run: terraform plan
+        working-directory: tf
 
-      - name: apply
+      - name: terraform apply
         run: terraform apply -auto-approve
+        working-directory: tf
